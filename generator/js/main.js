@@ -16,7 +16,7 @@ var drumproperties = {};
 
 // tempo variables
 var bpm = 120;
-var beat = (60/bpm)*1000; //beats per second in milliseconds
+var beat = (60/bpm); //beats per second in milliseconds
 
 // note lengths
 var sixteenbars  = beat * 64, //16 bars
@@ -62,7 +62,7 @@ function init() {
 //==================================//
 setTimeout(function(){
     phrase();
-}, half);
+}, half * 1000);
 
     function phrase(){ //8 bars
 
@@ -70,63 +70,63 @@ setTimeout(function(){
         maindrums();
         setTimeout(function(){
             maindrums();
-        }, half);
+        }, half * 1000);
         setTimeout(function(){
             maindrums();
-        }, whole);
+        }, whole * 1000);
         setTimeout(function(){
             secondarydrums();
-        }, half*3);
+        }, half * 3000);
 
         setTimeout(function(){
             maindrums();
             //choose drum samples and patterns ahead of time
             preloaddrums();
-        }, doublewhole);
+        }, doublewhole * 1000);
         setTimeout(function(){
             maindrums();
-        }, doublewhole + half);
+        }, (doublewhole + half) * 1000);
         setTimeout(function(){
             maindrums();
-        }, triplewhole);
+        }, triplewhole * 1000);
         setTimeout(function(){
             secondarydrums();
-        }, triplewhole + half);
+        }, (triplewhole + half) * 1000);
 
                 setTimeout(function(){
                     loaddrums();
                     maindrums();
-                }, fourbars);
+                }, fourbars * 1000);
                 setTimeout(function(){
                     maindrums();
-                }, fourbars + half);
+                }, (fourbars + half) * 1000);
                 setTimeout(function(){
                     maindrums();
-                }, fourbars + whole);
+                }, (fourbars + whole) * 1000);
                 setTimeout(function(){
                     secondarydrums();
-                }, fourbars + half*3);
+                }, (fourbars + half*3) * 1000);
 
                 setTimeout(function(){
                     //main synth secondary
                     maindrums();
                     //choose drum samples and patterns ahead of time
                     preloaddrums();
-                }, fourbars + doublewhole);
+                }, (fourbars + doublewhole) * 1000);
                 setTimeout(function(){
                     maindrums();
-                }, fourbars + doublewhole + half);
+                }, (fourbars + doublewhole + half) * 1000);
                 setTimeout(function(){
                     maindrums();
-                }, fourbars + triplewhole);
+                }, (fourbars + triplewhole) * 1000);
                 setTimeout(function(){
                     //if transition = bridge, or something, then no secondarydrums
                     secondarydrums();
-                }, fourbars + triplewhole + half);
+                }, (fourbars + triplewhole + half) * 1000);
         //run again
         setTimeout(function(){
             phrase();
-        }, eightbars);
+        }, eightbars * 1000);
 
     }
 
@@ -204,21 +204,16 @@ function loadSound(sourceSound, sourceName) {
     window[sourceSound] = window[sourceName];
 }
 
-function note(sourceSound, sourceSound2, length, callback) {
-    //call next sound
-    if (callback) {  
-        setTimeout(function(){
-            callback();
-        },length); 
-    } 
+function note(sourceSound, sourceSound2, time, callback) {
     // Create source
+    console.log(window[sourceSound]);
     var source = context.createBufferSource();
     source.buffer = window[sourceSound];
     // Connect source to main audio context
     source.connect(context.destination);
     // Play source sound
     source.currentTime = 0;
-    source.start(0);
+    source.start(context.currentTime + time);
     if (sourceSound2 !== 0){
         // Create source
         var source2 = context.createBufferSource();
@@ -227,7 +222,7 @@ function note(sourceSound, sourceSound2, length, callback) {
         source2.connect(context.destination);
         // Play source sound
         source2.currentTime = 0;
-        source2.start(0);
+        source2.start(window.context.currentTime + time);
     }
 }
 

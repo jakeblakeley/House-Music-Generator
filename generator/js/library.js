@@ -99,249 +99,145 @@ var drumlibrarieslength = (drumlibraries.length)-1;
 //=== Drums ===//
 //dance1
 function dance1(){
-	note("kick", 0, quarter, function() {
-		note("kick", 0, quarter, function() {
-		});
-	});
+    note("kick", 0, 0);
+    	note("kick", 0, quarter);
 }
 	function dance1b2(){
-		note("kick", 0, sixteenth*3, function() {
-		   note("kick", 0, sixteenth*3, function() {
-		   	 note("kick", 0, eighth, function() {
-		     });
-		   });
-		});
+		note("kick", 0, 0);
+    	   note("kick", 0, eighth + sixteenth);
+    		  note("kick", 0, quarter + eighth);
 	}
 	function dance1b3(){
-		note("kick", 0, quarter, function() {
-			note("kick", 0, eighth, function() {
-			  note("kick", 0, eighth, function() {
-			  });
-			});
-		});
+		note("kick", 0, 0);
+    		note("kick", 0, quarter);
+    		  note("kick", 0, quarter + eighth);
 	}
 
 //dance2
 function dance2(){
-	note("kick", 0, quarter, function() {
-		note("kick", "snare", quarter, function() {
-			//
-		});
-	});
+    note("kick", 0, 0);
+    	note("kick", "snare", quarter);
 }
 	function dance2b1(){
-		note("kick", 0, quarter, function() {
-			note("kick", "snare", sixteenth, function() {
-			  note("snare", 0, sixteenth, function() {
-				//
-			  });
-			});
-		});
+		note("kick", 0, 0);
+    		note("kick", "snare", quarter);
+    		  note("snare", 0, quarter + eighth);
 	}
 	function dance2b2(){
-		note("kick", 0, sixteenth*3, function() {
-		   note("snare", 0, sixteenth, function() {
-			note("kick", "snare", eighth, function() {
-			  note("snare", 0, sixteenth, function() {
-			   note("snare", 0, sixteenth, function() {
-				//
-		       });
-		      });
-		    });
-		   });
-		});
+		note("kick", 0, 0);
+    	   note("snare", 0, eighth + sixteenth);
+    		note("kick", "snare", quarter);
+    		  note("snare", 0, quarter + eighth);
+    		   note("snare", 0, quarter + eighth + sixteenth);
 	}
 	function dance2b3(){
-		note("kick", 0, eighth, function() {
-		  note("snare", 0, eighth, function() {
-		  	note("kick", "snare", eighth, function() {
-		  	  note("snare", 0, sixteenth, function() {
-		  	   note("snare", 0, sixteenth, function() {
-		  	  	//
-		       });
-		      });
-		    });
-		  });
-		});
+		note("kick", 0, 0);
+    	  note("snare", 0, eighth);
+    		note("kick", "snare", quarter);
+    		  note("snare", 0, quarter + eighth);
+    		   note("snare", 0, quarter + eighth + sixteenth);
 	}
 
 //tech1
 function tech1(){
-	note("kick", 0, eighth, function() {
-	  note("hat", 0, eighth, function() {
-		note("kick", "snare", eighth, function() {
-		  note("hat", 0, eighth, function() {
-			//
-		  });
-		});
-	  });
-	});
+  	note("kick", 0, 0);
+  	  note("hat", 0, eighth);
+  		note("kick", "snare", quarter);
+    	  note("hat", 0, quarter + eighth);
 }
 	function tech1b1(){
-		note("kick", 0, sixteenth, function() {
-		 note("hat", 0, eighth, function() {
-		   note("hat", 0, sixteenth, function() {
-			note("kick", "snare", sixteenth, function() {
-			 note("hat", 0, sixteenth, function() {
-			  note("hat", 0, sixteenth, function() {
-			   note("hat", 0, sixteenth, function() {
-				//
-			   });
-			  });
-			 });
-			});
-		   });
-		 });
-		});
+		note("kick", 0, 0);
+  	  	 note("hat", 0, sixteenth);
+  		   note("hat", 0, eighth + sixteenth);
+    		note("kick", "snare", quarter);
+    		 note("hat", 0, quarter + sixteenth);
+    		  note("hat", 0, quarter + eighth);
+    		   note("hat", 0, quarter + eighth + sixteenth);
 	}
 	function tech1b2(){
-		note("kick", 0, eighth, function() {
-		  note("hat", 0, eighth, function() {
-			note("kick", "snare", sixteenth, function() {
-			 note("hat", 0, sixteenth, function() {
-			  note("snare", 0, sixteenth, function() {
-			   note("hat", 0, sixteenth, function() {
-				//
-			   });
-			  });
-			 });
-			});
-		  });
-		});
+		note("kick", 0, 0);
+  	  	  note("hat", 0, eighth);
+    		note("kick", "snare", quarter);
+    		 note("hat", 0, quarter + sixteenth);
+    		  note("snare", "hat", quarter + eighth);
+    		   note("hat", 0, quarter + eighth + sixteenth);
 	}
 	function tech1b3(){
-		note("kick", 0, eighth, function() {
-		  note("hat", 0, eighth, function() {
-			note("kick", "snare", eighth, function() {
-			  note("hat", 0, eighth, function() {
-			  });
-			});
-		  });
-		});
+		note("kick", 0, 0);
+  	  	  note("hat", 0, eighth);
+    		note("kick", "snare", quarter);
+    		 note("hat", 0, quarter + sixteenth);
+    		  note("hat", 0, quarter + eighth);
+    		   note("hat", 0, quarter + eighth + sixteenth);
 	}
 
 //tech2
 function tech2(){
-	note("kick", 0, sixteenth*3, function() {
-	   note("hat", 0, sixteenth, function() {
-		note("kick", 0, eighth, function() {
-		   note("hat", 0, eighth, function() {
-		   });
-		});
-	   });
-	});
+    note("kick", 0, 0);
+  	   note("hat", 0, eighth + sixteenth);
+  		note("kick", 0, quarter);
+    	  note("hat", 0, quarter + eighth);
 }
 	function tech2b1(){
-		note("kick", 0, eighth, function() {
-		  note("hat", 0, eighth, function() {
-			note("kick", 0, sixteenth, function() {
-			 note("hat", 0, sixteenth, function() {
-			  note("hat", 0, sixteenth, function() {
-			   note("hat", 0, sixteenth, function() {
-				//
-			   });
-			  });
-			 });
-			});
-		   });
-		});
+		note("kick", 0, 0);
+  		  note("hat", 0, eighth);
+  			note("kick", 0, quarter);
+    		 note("hat", 0, quarter + sixteenth);
+    		  note("hat", 0, quarter + eighth);
+    		   note("hat", 0, quarter + eighth + sixteenth);
 	}
 	function tech2b2(){
-		note("kick", 0, sixteenth*3, function() {
-		   note("hat", 0, sixteenth, function() {
-			note("kick", 0, eighth, function() {
-			  note("hat", 0, sixteenth, function() {
-			   note("hat", 0, sixteenth, function() {
-				//
-			   });
-			  });
-			});
-		   });
-		});
+		note("kick", 0, 0);
+  	       note("hat", 0, eighth + sixteenth);
+  			note("kick", 0, quarter);
+    	  	  note("hat", 0, quarter + eighth);
+    	  	   note("hat", 0, quarter + eighth + sixteenth);
 	}
 	function tech2b3(){
-		note("kick", 0, sixteenth*3, function() {
-		   note("hat", 0, sixteenth, function() {
-			note("kick", 0, eighth, function() {
-			   note("kick", "hat", eighth, function() {
-			   });
-			});
-		   });
-		});
+		note("kick", 0, 0);
+  	       note("hat", 0, eighth + sixteenth);
+  			note("kick", 0, quarter);
+    	      note("kick", "hat", quarter + eighth);
 	}
 
 //tech3
 function tech3(){
-	note("kick", 0, sixteenth, function() {
-	 note("hat", 0, sixteenth, function() {
-	  note("hat", 0, sixteenth, function() {
-	   note("hat", 0, sixteenth, function() {
-		note("kick", "snare", sixteenth, function() {
-		 note("hat", 0, sixteenth, function() {
-		  note("hat", 0, sixteenth, function() {
-		   note("hat", 0, sixteenth, function() {
-		   	//
-		   });
-	      });	
-	     });	
-	    });	
-	   });	
-	  });	
-	 });
-	});	
+   	note("kick", 0, 0);
+  	 note("hat", 0, sixteenth);
+  	  note("hat", 0, eighth);
+  	   note("hat", 0, eighth + sixteenth);
+  		note("kick", "snare", quarter);
+    	 note("hat", 0, quarter + sixteenth);
+    	  note("hat", 0, quarter + eighth);
+    	   note("hat", 0, quarter + eighth + sixteenth);
 }
 	function tech3b1(){
-		note("kick", 0, sixteenth, function() {
-		 note("hat", 0, sixteenth, function() {
-		  note("hat", 0, sixteenth, function() {
-		   note("hat", 0, sixteenth, function() {
-			note("kick", "snare", sixteenth, function() {
-			 note("hat", 0, sixteenth, function() {
-			  note("snare", "hat", sixteenth, function() {
-			   note("hat", 0, sixteenth, function() {
-			   	//
-			   });
-		      });	
-		     });	
-		    });	
-		   });	
-		  });	
-		 });
-		});	
+		note("kick", 0, 0);
+  	 	 note("hat", 0, sixteenth);
+  	      note("hat", 0, eighth);
+  	       note("hat", 0, eighth + sixteenth);
+  			note("kick", "snare", quarter);
+    	 	 note("hat", 0, quarter + sixteenth);
+    	  	  note("snare", "hat", quarter + eighth);
+    	   	   note("hat", 0, quarter + eighth + sixteenth);
 	}
 	function tech3b2(){
-		note("kick", 0, sixteenth, function() {
-		 note("hat", 0, sixteenth, function() {
-		  note("hat", 0, sixteenth, function() {
-		   note("hat", 0, sixteenth, function() {
-			note("kick", "snare", sixteenth, function() {
-			 note("hat", 0, sixteenth, function() {
-			  note("snare", "hat", sixteenth, function() {
-			   note("snare", "hat", sixteenth, function() {
-			   	//
-			   });
-		      });	
-		     });	
-		    });	
-		   });	
-		  });	
-		 });
-		});	
+		note("kick", 0, 0);
+  	 	 note("hat", 0, sixteenth);
+  	      note("hat", 0, eighth);
+  	       note("hat", 0, eighth + sixteenth);
+  			note("kick", "snare", quarter);
+    	 	 note("hat", 0, quarter + sixteenth);
+    	  	  note("snare", "hat", quarter + eighth);
+    	   	   note("snare", "hat", quarter + eighth + sixteenth);
 	}
 	function tech3b3(){
-		note("kick", 0, sixteenth, function() {
-		 note("hat", 0, sixteenth, function() {
-		  note("hat", 0, sixteenth, function() {
-		   note("hat", 0, sixteenth, function() {
-			note("kick", "snare", eighth, function() {
-			  note("snare", "hat", eighth, function() {
-				//
-		      });		
-		    });	
-		   });	
-		  });	
-		 });
-		});	
+		note("kick", 0, 0);
+  	 	 note("hat", 0, sixteenth);
+  	      note("hat", 0, eighth);
+  	       note("hat", 0, eighth + sixteenth);
+  			note("kick", "snare", quarter);
+    	  	  note("snare", "hat", quarter + eighth);
 	}
 
 
