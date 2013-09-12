@@ -2,12 +2,12 @@
  // global variables
 //==================================//
 //find out supported file type
-if (Modernizr.audio.mp3){
+if (Modernizr.audio.mp3) {
     //have to use mp3 as default because safari states it has OGG support when it does not     
-    extension = '.mp3';
-} else if (Modernizr.audio.ogg){
+    var extension = '.mp3';
+} else if (Modernizr.audio.ogg) {
     //ogg fallback 
-    extension = '.ogg';
+    var extension = '.ogg';
 }
 
 //main audio context to plug into
@@ -16,7 +16,7 @@ var drumproperties = {};
 
 // tempo variables
 var bpm = 120;
-var beat = (60/bpm); //beats per second in milliseconds
+var beat = (60 / bpm); //beats per second in milliseconds
 
 // note lengths
 var sixteenbars  = beat * 64, //16 bars
@@ -26,7 +26,7 @@ var sixteenbars  = beat * 64, //16 bars
     doublewhole  = beat * 8, //2 bars
     whole        = beat * 4, //1 bar
     half         = beat * 2,
-    quarter      = beat ,
+    quarter      = beat,
     eighth       = beat / 2,
     sixteenth    = beat / 4,
     thirtysecond = beat / 8,
@@ -37,8 +37,8 @@ var sixteenbars  = beat * 64, //16 bars
 
 //instrument variables
 var drumproperties = {}, synthproperties = {}, transitionproperties = {}, miscproperties = {};
-var kicksource = null, snaresource = null, hatsource = null, synthonesource = null, synthtwosource = null, synththreesource = null,synthfoursource = null,buildsource = null,ambiencesource = null,transitionsource = null;
-var kick = null, snare = null, hat = null, synthone = null, synthtwo = null, synththree = null,synthfour = null,build = null,ambience = null,transition = null;
+var kicksource = null, snaresource = null, hatsource = null, synthonesource = null, synthtwosource = null, synththreesource = null, synthfoursource = null, buildsource = null, ambiencesource = null, transitionsource = null;
+var kick = null, snare = null, hat = null, synthone = null, synthtwo = null, synththree = null, synthfour = null, build = null, ambience = null, transition = null;
 
   //==================================//
  // Setup
@@ -48,19 +48,17 @@ window.onload = init;
 function init() {
     try {
         // Fix up for prefixing
-        window.AudioContext = window.AudioContext||window.webkitAudioContext;
+        window.AudioContext = window.AudioContext || window.webkitAudioContext;
         context = new AudioContext();
     }
-    catch(e) {
-        alert('Web Audio API is not supported in this browser');
-    }
+    catch(e) { alert('Web Audio API is not supported in this browser'); }
     preloaddrums();
 }
 
   //==================================//
  // Main code
 //==================================//
-setTimeout(function(){
+setTimeout(function() {
     phrase();
 }, half * 1000);
 
@@ -68,63 +66,63 @@ setTimeout(function(){
 
         loaddrums();
         maindrums();
-        setTimeout(function(){
+        setTimeout(function() {
             maindrums();
         }, half * 1000);
-        setTimeout(function(){
+        setTimeout(function() {
             maindrums();
         }, whole * 1000);
-        setTimeout(function(){
+        setTimeout(function() {
             secondarydrums();
         }, half * 3000);
 
-        setTimeout(function(){
+        setTimeout(function() {
             maindrums();
             //choose drum samples and patterns ahead of time
             preloaddrums();
         }, doublewhole * 1000);
-        setTimeout(function(){
+        setTimeout(function() {
             maindrums();
         }, (doublewhole + half) * 1000);
-        setTimeout(function(){
+        setTimeout(function() {
             maindrums();
         }, triplewhole * 1000);
-        setTimeout(function(){
+        setTimeout(function() {
             secondarydrums();
         }, (triplewhole + half) * 1000);
 
-                setTimeout(function(){
+                setTimeout(function() {
                     loaddrums();
                     maindrums();
                 }, fourbars * 1000);
-                setTimeout(function(){
+                setTimeout(function() {
                     maindrums();
                 }, (fourbars + half) * 1000);
-                setTimeout(function(){
+                setTimeout(function() {
                     maindrums();
                 }, (fourbars + whole) * 1000);
-                setTimeout(function(){
+                setTimeout(function() {
                     secondarydrums();
                 }, (fourbars + half*3) * 1000);
 
-                setTimeout(function(){
+                setTimeout(function() {
                     //main synth secondary
                     maindrums();
                     //choose drum samples and patterns ahead of time
                     preloaddrums();
                 }, (fourbars + doublewhole) * 1000);
-                setTimeout(function(){
+                setTimeout(function() {
                     maindrums();
                 }, (fourbars + doublewhole + half) * 1000);
-                setTimeout(function(){
+                setTimeout(function() {
                     maindrums();
                 }, (fourbars + triplewhole) * 1000);
-                setTimeout(function(){
+                setTimeout(function() {
                     //if transition = bridge, or something, then no secondarydrums
                     secondarydrums();
                 }, (fourbars + triplewhole + half) * 1000);
         //run again
-        setTimeout(function(){
+        setTimeout(function() {
             phrase();
         }, eightbars * 1000);
 
@@ -202,18 +200,18 @@ function preloadSound(url, sourceName) {
 
 function loadSound(sourceSound, sourceName) {
     window[sourceSound] = window[sourceName];
+    console.log(window[sourceName]);
 }
 
 function note(sourceSound, sourceSound2, time, callback) {
     // Create source
-    console.log(window[sourceSound]);
     var source = context.createBufferSource();
     source.buffer = window[sourceSound];
     // Connect source to main audio context
     source.connect(context.destination);
     // Play source sound
     source.currentTime = 0;
-    source.start(context.currentTime + time);
+    source.start(window.context.currentTime + time);
     if (sourceSound2 !== 0){
         // Create source
         var source2 = context.createBufferSource();
